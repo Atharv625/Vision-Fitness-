@@ -1,0 +1,23 @@
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyB-eQPGsM3QceZv5VgnvofZTHGh-bKqx3k",
+    authDomain: "fitalpha-baadb.firebaseapp.com",
+    projectId: "fitalpha-baadb",
+    storageBucket: "fitalpha-baadb.firebasestorage.app",
+    messagingSenderId: "94498803754",
+    appId: "1:94498803754:web:3020fb86e0f6ce6bda3353",
+    measurementId: "G-07LL0ZPFFC"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>

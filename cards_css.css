@@ -1,0 +1,59 @@
+/* Informative Cards Section */
+.info-cards {
+    text-align: center;
+    padding: 40px 20px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.info-cards h2 {
+    margin-bottom: 20px;
+    color: #ffbf00;
+}
+
+/* Horizontal Scrolling */
+.cards-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    white-space: nowrap;
+}
+
+/* Individual Cards */
+.card {
+    flex: 0 0 auto;
+    width: 220px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    scroll-snap-align: start;
+    color: white;
+}
+
+.card h3 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #ffbf00;
+}
+
+.card p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Scrollbar Styling */
+.cards-container::-webkit-scrollbar {
+    height: 6px;
+}
+
+.cards-container::-webkit-scrollbar-track {
+    background: #333;
+    border-radius: 5px;
+}
+
+.cards-container::-webkit-scrollbar-thumb {
+    background: #ffbf00;
+    border-radius: 5px;
+}

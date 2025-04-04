@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in!</title>
+    <link rel="icon" type="image/png" href="logo.png">
+
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('img4.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            padding: 10px 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 20px;
+            color: #ffbf00;
+        }
+
+        /* Navigation */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 5px;
+        }
+
+        /* Mobile Navigation */
+        .menu-toggle {
+            display: none;
+            font-size: 20px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                background: rgba(0, 0, 0, 0.3);
+                width: 100%;
+                left: 0;
+                top: 50px;
+                text-align: center;
+                padding: 10px 0;
+                backdrop-filter: blur(10px);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background-color: #ffbf00;
+            color: black;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+        .cta-button:hover {
+            background-color: #e6a800;
+            transform: scale(1.05)
+        }
+
+        /* Product Cards */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .card {
+            width: 250px;
+            padding: 20px;
+            background: rgb(16, 16, 16);
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+            margin: 15px;
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .card.active {
+            transform: scale(1.1);
+            box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-info {
+            display: none;
+            color: #fcec03;
+            margin-top: 10px;
+        }
+
+        .card.active .card-info {
+            display: block;
+        }
+
+        .card button {
+            margin-top: 10px;
+            padding: 8px 15px;
+            border: none;
+            background-color: #e6a800;
+            color: rgb(18, 17, 17);
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .card button:hover {
+            background-color: #e68900;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .getbutton {
+            background-color: #ffbf00;
+            color: black;
+            border: none;
+            padding: 8px 14px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 20px;
+
+            border-radius: 5px;
+
+        }
+
+        .getbutton:hover {
+            transform: scale(1.05)
+        }
+
+        .card-head {
+            color: #ff5900;
+            font-size: 16px;
+
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.1);
+            /* Transparent effect */
+            backdrop-filter: blur(3px);
+            /* Glassmorphism effect */
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            /* Centering input fields */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+        }
+
+        /* Styling inputs */
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 16px;
+            margin-right: 10px;
+
+        }
+
+        /* Placeholder text color */
+        input::placeholder {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Button styling */
+        .loginbtn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background: #ffbf00;
+            color: black;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .loginbtn:hover {
+            background: #ffbf00;
+            transform: scale(1.05);
+        }
+
+        .signup-text {
+            margin-top: 10px;
+            font-size: 14px;
+            color: white;
+        }
+
+        .signup-text a {
+            color: #ff7f50;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .signup-text a:hover {
+            text-decoration: underline;
+        }
+
+        .signup-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .google-signup,
+        .email-signup {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s;
+            width: 100%;
+        }
+
+        .google-signup {
+            background-color: white;
+            color: black;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .google-signup img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .email-signup {
+            background-color: #ffbf00;
+            color: black;
+            font-weight: bold;
+        }
+
+        .google-signup:hover,
+        .email-signup:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Vision Fitness</h1>
+        <button class=" menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Transform Your Body Today!</h1>
+        <div class="login-container">
+            <h2>Login</h2>
+            <input type="text" placeholder="Enter Mobile Number" required>
+            <input type="password" placeholder="Enter Password" required>
+            <button class="loginbtn">Log In</button>
+            <p class="signup-text">Don't have an account? <a href="SignUp.html">Sign Up</a></p>
+
+            <div class="signup-options">
+                <!-- Sign Up with Google -->
+                <button class="google-signup" id="google">
+                    <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google Logo">
+                    Sign Up with Google
+                </button>
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <script src="app.js"></script>
+    <footer>
+        <p>&copy; 2025 Vision Fitness. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("active");
+        }
+
+        function toggleCard(button) {
+            const card = button.parentElement;
+            card.classList.toggle("active");
+            button.textContent = card.classList.contains("active") ? "Show Less" : "Learn More";
+        }
+
+
+    </script>
+
+</body>
+
+</html>

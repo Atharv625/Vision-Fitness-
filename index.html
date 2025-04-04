@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Website</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    <style>
+        /* General Styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('img4.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+            padding: 10px 15px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 20px;
+            color: #ffbf00;
+        }
+
+        /* Navigation */
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 5px;
+        }
+
+        /* Mobile Navigation */
+        .menu-toggle {
+            display: none;
+            font-size: 20px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                background: rgba(0, 0, 0, 0.3);
+                width: 100%;
+                left: 0;
+                top: 50px;
+                text-align: center;
+                padding: 10px 0;
+                backdrop-filter: blur(10px);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            background-color: #ffbf00;
+            color: black;
+            border: none;
+            padding: 12px 24px;
+            cursor: pointer;
+            font-size: 18px;
+            border-radius: 5px;
+        }
+
+        .cta-button:hover {
+            background-color: #e6a800;
+            transform: scale(1.05)
+        }
+
+        /* Product Cards */
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+        }
+
+        .card {
+            width: 280px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.5);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .card-info {
+            display: none;
+            margin-top: 10px;
+            color: #fcec03;
+        }
+
+        .card.active .card-info {
+            display: block;
+        }
+
+        .card button {
+            margin-top: 10px;
+            padding: 10px 15px;
+            border: none;
+            background-color: #e6a800;
+            color: black;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .card button:hover {
+            background-color: #ffbf00;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+
+        .getbutton {
+            background-color: #ffbf00;
+            color: black;
+            border: none;
+            padding: 8px 14px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-right: 20px;
+
+            border-radius: 5px;
+
+        }
+
+        .getbutton:hover {
+            transform: scale(1.05)
+        }
+
+        .card-head {
+            color: #ff5900;
+            font-size: 16px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Vision Fitness</h1>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="getbutton" id="getit"
+                        onclick="window.location.href = 'https://drive.google.com/uc?export=download&id=1GlpNCuRmlJmfsRjB6_wQGxn8f2c1zapi';">GETIT</button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <!-- <script>
+        document.getElementById("getit").addEventListener("click", function () {
+            window.location.href = "https://drive.google.com/uc?export=download&id=1GlpNCuRmlJmfsRjB6_wQGxn8f2c1zapi";
+        });
+    </script> -->
+    <section class="hero">
+        <h1>Transform Your Body Today!</h1>
+        <button class="cta-button" onclick="window.location.href='#services'">Get Started</button>
+    </section>
+
+    <div class="card-container">
+        <div class="card">
+            <img src="profilemain.jpeg" alt="Product Image">
+            <h3 class="card-head"> Profile</h3>
+            <p class="card-info">Stay on top of your fitness goals with our app, designed to help you track workouts,
+                monitor progress, and stay motivated. Download now to take control of your health and achieve your best
+                self!.</p>
+            <button onclick="toggleCard(this)">Learn More</button>
+        </div>
+        <div class="card">
+            <img src="protein_powder_neon_design.jpeg" alt="Product Image">
+            <h3 class="card-head">Supplement</h3>
+            <p class="card-info">Fuel your body with the best nutrition using our premium supplements, designed to
+                support your fitness and wellness goals. Get the perfect blend of quality and performance to power your
+                journey!</p>
+            <button onclick="toggleCard(this)">Learn More</button>
+        </div>
+        <div class="card">
+            <img src="selfdefencemain.jpeg" alt="Product Image">
+            <h3 class="card-head">Self Defence</h3>
+            <p class="card-info">Empower yourself with our self-defense training, designed to boost your confidence,
+                strength, and safety. Learn essential techniques to stay prepared and protect yourself in any situation!
+                .</p>
+            <button onclick="toggleCard(this)">Learn More</button>
+        </div>
+        <div class="card">
+            <img src="diet_plan_neon_design.jpeg" alt="Product Image">
+            <h3 class="card-head">Diet Plan</h3>
+            <p class="card-info">Achieve your health goals with our personalized diet plans, tailored to your lifestyle
+                and nutrition needs. Eat smart, stay fit, and fuel your body the right way!</p>
+            <button onclick="toggleCard(this)">Learn More</button>
+        </div>
+        <div class="card">
+            <img src="dumblemain.jpeg" alt="Product Image">
+            <h3 class="card-head">Work Out</h3>
+            <p class="card-info">Crush your fitness goals with our expert-designed workouts, tailored for all levels.
+                Stay active, build strength, and transform your body—one session at a time!</p>
+            <button onclick="toggleCard(this)">Learn More</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <footer>
+        <p>&copy; 2025 Vision Fitness. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("nav-menu").classList.toggle("active");
+        }
+
+        function toggleCard(button) {
+            const card = button.parentElement;
+            card.classList.toggle("active");
+            button.textContent = card.classList.contains("active") ? "Show Less" : "Learn More";
+        }
+
+        // const fileId = "1CvukyH8OWCOE3jvKS4ewgZySc7DkSD3p";
+        // document.getElementById("getit").addEventListener("click", function () {
+        //     window.location.href = "https://drive.google.com/uc?export=download&id=1CvukyH8OWCOE3jvKS4ewgZySc7DkSD3p";
+        // });
+
+        // document.getElementById("getit").addEventListener("click", function () {
+        //     fetch("https://drive.google.com/uc?export=download&id=1CvukyH8OWCOE3jvKS4ewgZySc7DkSD3p")
+        //         .then(response => response.blob())
+        //         .then(blob => {
+        //             const link = document.createElement("a");
+        //             link.href = window.URL.createObjectURL(blob);
+        //             link.download = "base.apk"; // Force filename
+        //             document.body.appendChild(link);
+        //             link.click();
+        //             document.body.removeChild(link);
+        //         })
+        //         .catch(error => console.error("Download failed:", error));
+        // });
+        // document.getElementById("getit").addEventListener("click", function () {
+        //     window.location.href = "https://firebasestorage.googleapis.com/v0/b/fitalpha-baadb.appspot.com/o/base.apk?alt=media";
+        // });
+        // document.getElementById("getit").addEventListener("click", function () {
+        //     window.location.href = "https://drive.google.com/uc?export=download&id=1CvukyH8OWCOE3jvKS4ewgZySc7DkSD3p&confirm=t";
+        // });
+
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "alpha-60ed3"
-  }
+    "default": "fitalpha-baadb"
+  },
+  "targets": {},
+  "etags": {}
 }

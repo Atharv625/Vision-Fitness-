@@ -449,6 +449,9 @@
             card.classList.toggle("active");
             button.textContent = card.classList.contains("active") ? "Show Less" : "Learn More";
         }
+        document.addEventListener("contextmenu", function (e) {
+            e.preventDefault();
+        });
 
 
     </script>

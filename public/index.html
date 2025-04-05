@@ -62,7 +62,7 @@
         }
 
         /* Mobile Navigation */
-        .menu-toggle {
+        /* .menu-toggle {
             display: none;
             font-size: 20px;
             background: none;
@@ -70,7 +70,18 @@
             color: white;
             cursor: pointer;
             margin-right: 10px;
+        } */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-left: 140px;
+            /* Push to right */
         }
+
 
         @media (max-width: 768px) {
             nav ul {
@@ -330,6 +341,57 @@
         .google-signup:hover,
         .email-signup:hover {
             transform: scale(1.05);
+        }
+
+        .hero h1 {
+            font-size: clamp(28px, 6vw, 50px);
+        }
+
+        .hero {
+            padding-top: 100px;
+            /* or use margin-top if fixed header causes overlap */
+        }
+
+        @media (max-width: 768px) {
+            footer {
+                padding: 8px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                width: 90%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul li {
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+
+        .menu-toggle {
+            z-index: 1001;
         }
     </style>
 </head>
